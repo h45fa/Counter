@@ -1,20 +1,27 @@
-import Card from "./components/Card";
+import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react'
+import Styles from './components/App.css'
 
-function App() {
-  const url =
-    "https://assets.ithillel.ua/images/blog/cover/_transform_blogCard_2x/Hillel-Blog-BusinessAnalysis.jpg";
-  return (
-    <Card
-      img={url}
-      title="UX Design : How To Implement Usability Testing"
-      author="Alfredo Rhiel Madsen"
-      students={500}
-      level="Beginner"
-      rating={4.5}
-      duration={1.5}
-      modules={5}
-    />
-  );
+const App = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+      fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+return (
+  <div className='center'>
+      {users.slice(0, 5).map((user) => (
+          <div key={user.id} className='App'>
+              <b>{user.name}</b>
+              <p>{user.username}</p>
+              <p>{user.email}</p>
+          </div>
+      ))}
+  </div>
+)
 }
 
 export default App;

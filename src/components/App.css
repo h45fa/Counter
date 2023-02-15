@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  border: 3px solid;
+  border-radius: 10px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  background-color: #e6c1c1;
+  margin-bottom: 20px;
+}
+
+.center {
+  margin: auto;
+  width: 600px;
+}
